@@ -89,9 +89,8 @@ const page = () => {
         highlightColor="#01249E"
         title={
           <>
-            A comm*unity* <br/>
-            like
-            no other
+            A comm*unity* <br />
+            like no other
             <br />
           </>
         }
@@ -116,7 +115,10 @@ const page = () => {
             </p>
             <p>
               It hosts an annual showcase event, the
-              <a href="https://www.southasianfest.net/" className="underline ml-2">
+              <a
+                href="https://www.southasianfest.net/"
+                className="underline ml-2"
+              >
                 South Asian Festival
               </a>
               , the largest such festival in North America to celebrate the
@@ -151,6 +153,7 @@ const page = () => {
       />
       <FestivalSection
         image="/home/OSACA-Homepage-02.jpg"
+        ctaLink=""
         title={
           <>
             View upcoming
@@ -204,7 +207,7 @@ const page = () => {
           alt: "Festival Image",
         }}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

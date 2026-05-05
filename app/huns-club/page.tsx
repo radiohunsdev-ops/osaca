@@ -63,11 +63,12 @@ const page = () => {
       />
       <HunsClubForm />
       <FestivalSection
+        ctaLink=""
         image="/images/OSACCA-Huns-Club-02-15-770x1080.jpg"
         title={
           <>
             A <span className="text-[#37E8DA]">celebration</span> of
-            <br /> Hunsdeep 
+            <br /> Hunsdeep
           </>
         }
         description="We host the South Asian Festival, the largest such festival in North America to celebrate the cultural heritage of the South Asian region."
@@ -90,7 +91,7 @@ const page = () => {
           alt: "Festival Image",
         }}
       />
-      <Footer secondaryColor="#37E8DA"/>
+      <Footer secondaryColor="#37E8DA" />
     </div>
   );
 };

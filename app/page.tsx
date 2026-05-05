@@ -130,6 +130,7 @@ export default function Home() {
         headingColor="#0d47a1"
       />
       <FestivalSection
+        ctaLink=""
         image="/home/OSACA-Homepage-02.jpg"
         title={
           <>
@@ -157,6 +158,7 @@ export default function Home() {
         textColor="#ffffff"
       />
       <FestivalSection
+        ctaLink=""
         image="/home/OSACA-Homepage-03.jpg"
         title={
           <>
