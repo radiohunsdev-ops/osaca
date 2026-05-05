@@ -47,6 +47,7 @@ const page = () => {
             <span className="text-[#37E8DA]">2021</span>
           </>
         }
+        ctaLink="https://www.southasianfest.net/"
         ctaColor="#37E8DA"
         description="We host the South Asian Festival, the largest such festival in North America to celebrate the cultural heritage of the South Asian region."
         ctaText="Find out more"
@@ -68,6 +69,7 @@ const page = () => {
         textColor="#ffffff"
       />
       <FestivalSection
+        ctaLink="/membership"
         ctaColor="#37E8DA"
         bottomBgColor="#01249E"
         image="/home/OSACA-Homepage-03.jpg"
@@ -81,7 +83,7 @@ const page = () => {
         ctaText="Find out how"
         bottomElement={<CirclePattern />}
       />
-      <Footer secondaryColor="#37E8DA"/>
+      <Footer secondaryColor="#37E8DA" />
     </div>
   );
 };

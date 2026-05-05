@@ -89,9 +89,8 @@ const page = () => {
         highlightColor="#01249E"
         title={
           <>
-            A comm- <br />
-            *unity* like
-            <br />
+            A comm*unity* <br/>
+            like
             no other
             <br />
           </>
@@ -117,7 +116,7 @@ const page = () => {
             </p>
             <p>
               It hosts an annual showcase event, the
-              <a href="https://your-link-here.com" className="underline ml-2">
+              <a href="https://www.southasianfest.net/" className="underline ml-2">
                 South Asian Festival
               </a>
               , the largest such festival in North America to celebrate the

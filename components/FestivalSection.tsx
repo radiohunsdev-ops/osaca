@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 type FestivalSectionProps = {
@@ -10,7 +11,7 @@ type FestivalSectionProps = {
   ctaText?: string;
   onClick?: () => void;
   bottomElement?: React.ReactNode;
-
+  ctaLink: string;
   // color props
   bgColor?: string;
   titleColor?: string;
@@ -24,9 +25,8 @@ export default function FestivalSection({
   title,
   description,
   ctaText = "",
-  onClick,
   bottomElement,
-
+  ctaLink,
   bgColor = "#e7e1db",
   titleColor = "#1e3a8a",
   descriptionColor = "#4b5563",
@@ -35,7 +35,6 @@ export default function FestivalSection({
 }: FestivalSectionProps) {
   return (
     <section className="w-full min-h-screen flex flex-col lg:grid lg:grid-cols-5 overflow-hidden">
-      
       {/* Image */}
       <div className="w-full h-[40vh] sm:h-[50vh] lg:h-auto lg:col-span-2 relative overflow-hidden">
         <img
@@ -47,7 +46,6 @@ export default function FestivalSection({
 
       {/* Content */}
       <div className="flex flex-col lg:col-span-3 lg:grid lg:grid-rows-3 h-full">
-        
         {/* Top Content */}
         <div
           className="flex flex-col justify-center px-6 sm:px-10 py-10 lg:py-0 lg:row-span-2"
@@ -68,8 +66,8 @@ export default function FestivalSection({
           </p>
 
           {ctaText && (
-            <div
-              onClick={onClick}
+            <Link
+              href={ctaLink}
               className="mt-6 sm:mt-8 flex text-base sm:text-lg md:text-xl items-center gap-3 sm:gap-4 cursor-pointer group w-fit"
               style={{ color: ctaColor }}
             >
@@ -81,7 +79,7 @@ export default function FestivalSection({
               >
                 →
               </div>
-            </div>
+            </Link>
           )}
         </div>
 

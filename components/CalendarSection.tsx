@@ -1,14 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import Calendar from "./Calendar";
 
-type DescriptionSectionProps = {
+type Props = {
   heading: string;
   body: string;
 };
 
-export default function CalendarSection({
-  heading,
-  body,
-}: DescriptionSectionProps) {
+export default function CalendarSection({ heading, body }: Props) {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  // Highlight words between * *
   const formatHeading = (text: string) => {
     const parts = text.split(/(\*.*?\*)/g);
     return parts.map((part, index) => {
@@ -22,22 +25,43 @@ export default function CalendarSection({
       return part;
     });
   };
+
+  const handlePrevMonth = () => {
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
+    );
+  };
+
+  const handleNextMonth = () => {
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
+    );
+  };
+
+  const monthYear = currentDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <div className="relative">
-      <section className="bg-[#F6F1E7] ">
+      <section className="bg-[#F6F1E7]">
         <div className="flex flex-col lg:grid lg:grid-cols-[40%_60%]">
+          
+          {/* LEFT SIDE */}
           <div className="flex flex-col">
             <div className="bg-[#01249E] px-6 py-10 sm:px-8 sm:py-16 lg:px-10 lg:py-30 space-y-4">
-              <h1 className="text-[42px] sm:text-[56px] lg:text-[75px] text-white max-w-lg  font-extrabold leading-[1.05] tracking-wide">
+              <h1 className="text-[42px] sm:text-[56px] lg:text-[75px] text-white max-w-lg font-extrabold leading-[1.05] tracking-wide">
                 {formatHeading(heading)}
               </h1>
+
               <p className="max-w-xl text-white font-bold text-base sm:text-lg leading-relaxed">
                 {body}
               </p>
             </div>
 
-            <div className=" relative w-full flex items-end justify-end content-end p-5  h-[55vh] bg-[#37E8DA] overflow-hidden">
-              <div className="w-100 h-100 ">
+            <div className="relative w-full flex items-end justify-end p-5 h-[55vh] bg-[#37E8DA] overflow-hidden">
+              <div className="w-100 h-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 324.01 324.02"
@@ -53,16 +77,27 @@ export default function CalendarSection({
             </div>
           </div>
 
+          {/* RIGHT SIDE */}
           <div className="px-2 pt-6 sm:pt-8 lg:pt-10 flex flex-col">
-            <Calendar />
+            
+            <Calendar currentDate={currentDate} />
+
             <div className="flex items-center justify-center gap-6 sm:gap-10 py-4">
-              <button className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#01249E] flex items-center justify-center text-[#01249E]">
+              <button
+                onClick={handlePrevMonth}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#01249E] flex items-center justify-center text-[#01249E]"
+              >
                 ←
               </button>
-              <span className=" text-[#01249E] text-lg sm:text-xl">
-                January 2026
+
+              <span className="text-[#01249E] text-lg sm:text-xl">
+                {monthYear}
               </span>
-              <button className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#01249E] flex items-center justify-center text-[#01249E]">
+
+              <button
+                onClick={handleNextMonth}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#01249E] flex items-center justify-center text-[#01249E]"
+              >
                 →
               </button>
             </div>

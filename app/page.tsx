@@ -100,12 +100,8 @@ export default function Home() {
       <DescriptionSection
         title={
           <>
-            A comm-
-            <br />
-            <span className="text-[#FF3850]">unity </span>
-            like
-            <br />
-            no other
+            A comm<span className="text-[#FF3850]">unity </span>
+            like no other
           </>
         }
         description={

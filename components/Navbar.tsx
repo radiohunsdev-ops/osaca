@@ -36,21 +36,28 @@ const navLinks = [
   { label: "Events", href: "/events" },
   { label: "Membership", href: "/membership" },
   { label: "Huns Club", href: "/huns-club" },
-  // { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const [show, setShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      // hide on scroll down
       setShow(!(currentScrollY > lastScrollY && currentScrollY > 80));
+
+      // detect scroll for blur
+      setScrolled(currentScrollY > 20);
+
       lastScrollY = currentScrollY;
     };
 
@@ -67,13 +74,19 @@ export default function Navbar() {
 
   return (
     <>
+      {/* NAVBAR */}
       <div
-        className={`fixed top-0 left-0 w-full z-40  transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
+        } ${
+          scrolled
+            ? "backdrop-blur-md bg-white/70 border-b border-gray-200"
+            : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between container mx-auto  lg:px-12 py-6">
-          <div className="w-17 h-17 py-4">
+        <div className="flex items-center justify-between container mx-auto lg:px-12 px-6 py-6">
+          {/* LOGO */}
+          <div className="w-16 h-16">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.33 123.65">
               <circle
                 className="logo-svg-pattern"
@@ -226,34 +239,43 @@ export default function Navbar() {
               ></path>
             </svg>
           </div>
-          <nav className="hidden md:flex gap-6 font-semibold text-white">
+
+          {/* DESKTOP NAV */}
+          <nav
+            className={`hidden md:flex gap-6 font-semibold transition-colors ${
+              scrolled ? "text-black" : "text-white"
+            }`}
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={
-                    isActive
-                      ? "text-[#01249E]"
-                      : "hover:text-[#01249E] transition-colors"
-                  }
+                  className={`transition-colors ${
+                    isActive ? "text-[#01249E]" : "hover:text-[#01249E]"
+                  }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
           </nav>
+
+          {/* MOBILE MENU BUTTON */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden text-white z-50 relative"
-            aria-label="Open menu"
+            className={`md:hidden z-50 ${
+              scrolled ? "text-black" : "text-white"
+            }`}
           >
             <Menu size={30} />
           </button>
         </div>
       </div>
 
+      {/* MOBILE MENU */}
       <div
         className={`fixed inset-0 z-50 bg-black transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
@@ -261,21 +283,10 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between px-6 py-5">
           <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={160}
-              height={40}
-              sizes="160px"
-              style={{ width: "auto", height: "auto" }}
-            />
+            <Image src="/logo.png" alt="Logo" width={160} height={40} />
           </Link>
 
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-white"
-            aria-label="Close menu"
-          >
+          <button onClick={() => setMenuOpen(false)} className="text-white">
             <X size={30} />
           </button>
         </div>
@@ -283,16 +294,15 @@ export default function Navbar() {
         <div className="flex flex-col items-center justify-center h-[calc(100%-160px)] gap-8 text-xl text-white">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
+
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={
-                  isActive
-                    ? "text-[#01249E]"
-                    : "hover:text-[#01249E] transition-colors"
-                }
+                className={`transition-colors ${
+                  isActive ? "text-[#01249E]" : "hover:text-[#01249E]"
+                }`}
               >
                 {link.label}
               </Link>
@@ -300,6 +310,7 @@ export default function Navbar() {
           })}
         </div>
 
+        {/* SOCIAL ICONS */}
         <div className="flex justify-center gap-6 pb-10">
           {socialLinks.map(({ Icon, label, href }) => (
             <a
@@ -307,7 +318,6 @@ export default function Navbar() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={label}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400 text-cyan-400 transition hover:bg-cyan-400 hover:text-black"
             >
               <Icon size={18} />
