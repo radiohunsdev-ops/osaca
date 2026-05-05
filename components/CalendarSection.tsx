@@ -79,9 +79,7 @@ export default function CalendarSection({ heading, body }: Props) {
 
           {/* RIGHT SIDE */}
           <div className="px-2 pt-6 sm:pt-8 lg:pt-10 flex flex-col">
-            
             <Calendar currentDate={currentDate} />
-
             <div className="flex items-center justify-center gap-6 sm:gap-10 py-4">
               <button
                 onClick={handlePrevMonth}
