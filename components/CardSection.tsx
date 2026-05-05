@@ -136,7 +136,7 @@ const AudioOverlay = ({
 }) => (
   <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
     <div
-      className="relative w-full max-w-xl rounded-lg p-6 sm:p-10 overflow-hidden font-serif mx-4"
+      className="relative w-full max-w-xl rounded-lg p-6 sm:p-10 overflow-hidden  mx-4"
       style={{
         backgroundColor: audio.bgColor || DEFAULT_BG_COLOR,
         color: audio.textColor || DEFAULT_TEXT_COLOR,
@@ -229,7 +229,7 @@ const Card = ({
       )}
 
       <div
-        className={`relative z-10 space-y-2 p-5 sm:p-7 lg:p-10 flex flex-col justify-end font-serif ${
+        className={`relative z-10 space-y-2 p-5 sm:p-7 lg:p-10 flex flex-col justify-end  ${
           hasVideo || hasImage
             ? "min-h-30 sm:min-h-35 lg:min-h-[40%]"
             : "min-h-70 sm:min-h-80 lg:min-h-125"
@@ -324,9 +324,9 @@ const CardSection = ({ cards }: Props) => {
     <div>
       <section className="relative w-full bg-[#EDDECA] overflow-hidden py-12 sm:py-16 lg:py-24">
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
-          <section className="w-full font-serif py-3 sm:py-5">
+          <section className="w-full  py-3 sm:py-5">
             <div className="max-w-xl mx-auto px-4 sm:px-6">
-              <h2 className="text-center text-[#E55322] text-lg sm:text-xl font-medium mb-6 sm:mb-10">
+              <h2 className="text-center text-[#01249E] text-lg sm:text-xl font-medium mb-6 sm:mb-10">
                 Filter
               </h2>
 
@@ -337,8 +337,8 @@ const CardSection = ({ cards }: Props) => {
                     onClick={() => handleFilterChange(filter)}
                     className={`cursor-pointer  whitespace-nowrap transition-colors px-3 py-1.5 rounded text-sm shrink-0 ${
                       activeFilter === filter
-                        ? "bg-[#E55322] text-white"
-                        : "text-[#243746] hover:text-[#E55322]"
+                        ? "bg-[#01249E] text-white"
+                        : "text-[#243746] hover:text-[#01249E]"
                     }`}
                   >
                     {filter}
@@ -353,7 +353,7 @@ const CardSection = ({ cards }: Props) => {
                     onClick={() => handleFilterChange(filter)}
                     className={`cursor-pointer transition-colors px-4 py-2 rounded ${
                       activeFilter === filter
-                        ? "bg-[#E55322] text-white"
+                        ? "bg-[#01249E] text-white"
                         : "hover:text-[#E55322]"
                     }`}
                   >
@@ -384,7 +384,7 @@ const CardSection = ({ cards }: Props) => {
           </div>
 
           {hasMore && (
-            <div className="my-10 sm:my-14 flex flex-col items-center text-[#1F3A44] font-serif">
+            <div className="my-10 sm:my-14 flex flex-col items-center text-[#1F3A44] ">
               <button
                 onClick={handleLoadMore}
                 className="flex items-center gap-2 px-6 py-3 rounded text-white font-semibold transition"

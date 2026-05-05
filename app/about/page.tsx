@@ -85,8 +85,8 @@ const page = () => {
       <Landing
         bgImage="/landing/AboutUs.jpg"
         subtitle="About us"
-        highlightColor=""
-        textColor=""
+        textColor="#01249E"
+        highlightColor="#01249E"
         title={
           <>
             A comm- <br />
@@ -145,7 +145,7 @@ const page = () => {
       />
       <VideoComponent
         videoUrl="https://www.youtube.com/watch?v=S_E5wYdhbxY&t"
-        thumbnail="/home/video-1.jpg"
+        thumbnail="/slide/events/slide6.jpg"
         showBackground={true}
         title="South Asian Festival"
         subtitle=""

@@ -43,10 +43,7 @@ const subtitleVariants: Variants = {
 
 function parseText(text: string) {
   return text.split(/(\*.*?\*)/g).map((part, index) => ({
-    text:
-      part.startsWith("*") && part.endsWith("*")
-        ? part.slice(1, -1)
-        : part,
+    text: part.startsWith("*") && part.endsWith("*") ? part.slice(1, -1) : part,
     highlight: part.startsWith("*") && part.endsWith("*"),
     key: index,
   }));
@@ -82,11 +79,7 @@ function AnimatedLetters({
       transition={{ delay: delayChildren }}
     >
       {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          variants={letterVariants}
-          className="inline-block"
-        >
+        <motion.span key={i} variants={letterVariants} className="inline-block">
           {char === " " ? "\u00A0" : char}
         </motion.span>
       ))}
@@ -98,7 +91,7 @@ function animateNode(
   node: React.ReactNode,
   baseDelay: number,
   charCount: { value: number },
-  highlightColor?: string
+  highlightColor?: string,
 ): React.ReactNode {
   if (typeof node === "string") {
     const parts = parseText(node);
@@ -126,8 +119,8 @@ function animateNode(
       element,
       {},
       React.Children.map(element.props.children, (child) =>
-        animateNode(child, baseDelay, charCount, highlightColor)
-      )
+        animateNode(child, baseDelay, charCount, highlightColor),
+      ),
     );
   }
 
@@ -147,7 +140,7 @@ export default function Landing({
   subtitle,
   title,
   textColor,
-  highlightColor = "#01249E", 
+  highlightColor = "#01249E",
 }: HeroProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10%" });
@@ -173,8 +166,8 @@ export default function Landing({
 
       <div className="absolute inset-0 z-10 bg-linear-to-b from-black/0 via-black/40 to-black/70" />
 
-      <div className="relative z-30 flex h-full items-center">
-        <div className="mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-12 text-center md:text-left">
+      <div className="relative  z-30 flex h-full items-center">
+        <div className="mx-auto container w-full max-w-8xl px-12 text-center md:text-left">
           {subtitle && (
             <motion.p
               className="mb-4 inline-flex items-center gap-3 text-sm font-bold sm:text-base md:text-lg lg:text-xl tracking-[0.2em] uppercase"

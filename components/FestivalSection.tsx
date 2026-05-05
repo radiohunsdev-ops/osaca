@@ -49,14 +49,14 @@ export default function FestivalSection({
           style={{ backgroundColor: bgColor }}
         >
           <h1
-            className="text-5xl md:text-6xl font-bold leading-tight"
+            className="text-8xl font-bold leading-tight"
             style={{ color: titleColor }}
           >
             {title}
           </h1>
 
           <p
-            className="mt-6 text-lg max-w-xl"
+            className="mt-6 text-xl max-w-2xl"
             style={{ color: descriptionColor }}
           >
             {description}
@@ -64,10 +64,10 @@ export default function FestivalSection({
 
           <div
             onClick={onClick}
-            className="mt-8 flex items-center gap-4 cursor-pointer group w-fit"
+            className="mt-8 flex  text-xl items-center gap-4 cursor-pointer group w-fit"
             style={{ color: ctaColor }}
           >
-            <span className="text-lg">{ctaText}</span>
+            <span className="text-xl">{ctaText}</span>
 
             <div
               className="w-10 h-10 rounded-full border flex items-center justify-center transition"

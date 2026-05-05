@@ -51,7 +51,7 @@ export default function OsacaSection({
 
               <div className="mb-6 flex justify-center">{item.icon}</div>
 
-              <p className="text-white text-[15px] leading-7 whitespace-pre-line max-w-65 mx-auto">
+              <p className="text-white text-[16px] leading-7 whitespace-pre-line max-w-65 mx-auto">
                 {item.title}
               </p>
             </div>

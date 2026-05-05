@@ -1,6 +1,7 @@
 import BusinessMembership from "@/components/BusinessMembership";
 import DescriptionSection from "@/components/DescriptionSection";
 import FestivalSection from "@/components/FestivalSection";
+import Footer from "@/components/Footer";
 import HunsClubForm from "@/components/HunsClubForm";
 import ImageContainer from "@/components/ImageContainer";
 import Landing from "@/components/Landing";
@@ -55,23 +56,23 @@ const page = () => {
               business within a 100-kilometre range of Ottawa or be selling
               online into the Ottawa market.
             </p>
-            <p>Please complete the form below to apply.</p>
           </>
         }
-        buttonText="Become a Member"
+        buttonText=""
         buttonLink=""
       />
       <HunsClubForm />
       <FestivalSection
-        image="/home/OSACA-Homepage-02.jpg"
+        image="/images/OSACCA-Huns-Club-02-15-770x1080.jpg"
         title={
           <>
-            South Asian <br />
-            Festival <span className="text-red-500">2021</span>
+            A <span className="text-[#37E8DA]">celebration</span> of
+            <br /> Hunsdeep 
           </>
         }
         description="We host the South Asian Festival, the largest such festival in North America to celebrate the cultural heritage of the South Asian region."
         ctaText="Find out more"
+        bottomBgColor="#37E8DA"
         bottomElement={
           <div className="grid grid-cols-4 gap-6">
             {Array.from({ length: 16 }).map((_, i) => (
@@ -85,10 +86,11 @@ const page = () => {
       />
       <ImageContainer
         image={{
-          url: "/home/OSACA-Homepage-05.jpg",
+          url: "/images/bundeep.jpg",
           alt: "Festival Image",
         }}
       />
+      <Footer secondaryColor="#37E8DA"/>
     </div>
   );
 };

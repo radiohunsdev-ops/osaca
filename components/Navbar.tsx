@@ -36,7 +36,7 @@ const navLinks = [
   { label: "Events", href: "/events" },
   { label: "Membership", href: "/membership" },
   { label: "Huns Club", href: "/huns-club" },
-  { label: "Journal", href: "/journal" },
+  // { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -68,11 +68,11 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full z-40 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full z-40  transition-transform duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="flex items-center justify-between   lg:px-12 py-6">
+        <div className="flex items-center justify-between container mx-auto  lg:px-12 py-6">
           <div className="w-17 h-17 py-4">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.33 123.65">
               <circle
@@ -226,7 +226,7 @@ export default function Navbar() {
               ></path>
             </svg>
           </div>
-          <nav className="hidden md:flex gap-6 text-white">
+          <nav className="hidden md:flex gap-6 font-semibold text-white">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -235,8 +235,8 @@ export default function Navbar() {
                   href={link.href}
                   className={
                     isActive
-                      ? "text-cyan-400"
-                      : "hover:text-cyan-400 transition-colors"
+                      ? "text-[#01249E]"
+                      : "hover:text-[#01249E] transition-colors"
                   }
                 >
                   {link.label}
@@ -244,7 +244,6 @@ export default function Navbar() {
               );
             })}
           </nav>
-
           <button
             onClick={() => setMenuOpen(true)}
             className="md:hidden text-white z-50 relative"
@@ -291,8 +290,8 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={
                   isActive
-                    ? "text-cyan-400"
-                    : "hover:text-cyan-400 transition-colors"
+                    ? "text-[#01249E]"
+                    : "hover:text-[#01249E] transition-colors"
                 }
               >
                 {link.label}

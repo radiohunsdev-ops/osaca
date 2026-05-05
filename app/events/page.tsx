@@ -81,7 +81,7 @@ const page = () => {
         ctaText="Find out how"
         bottomElement={<CirclePattern />}
       />
-      <Footer />
+      <Footer secondaryColor="#37E8DA"/>
     </div>
   );
 };

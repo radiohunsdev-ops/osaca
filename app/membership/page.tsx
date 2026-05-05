@@ -1,5 +1,6 @@
 import BusinessMembership from "@/components/BusinessMembership";
 import DescriptionSection from "@/components/DescriptionSection";
+import Footer from "@/components/Footer";
 import ImageContainer from "@/components/ImageContainer";
 import Landing from "@/components/Landing";
 import MembershipPage from "@/components/MembershipPage";
@@ -10,8 +11,8 @@ const page = () => {
       <Landing
         bgImage="/landing/membership.jpg"
         subtitle="Memberships"
-        highlightColor="#37E8DA"
-        textColor="#37E8DA"
+        highlightColor="#01249E"
+        textColor="#01249E"
         title={
           <>
             Join our
@@ -103,7 +104,7 @@ const page = () => {
             </p>
           </>
         }
-        buttonText="Buisness Membership"
+        buttonText=""
         buttonLink="/"
       />
       <BusinessMembership />
@@ -114,6 +115,7 @@ const page = () => {
           alt: "Festival Image",
         }}
       />
+      <Footer secondaryColor="#FF3850"/>
     </div>
   );
 };

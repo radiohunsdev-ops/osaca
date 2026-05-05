@@ -1,5 +1,6 @@
 import DescriptionSection from "@/components/DescriptionSection";
 import FestivalSection from "@/components/FestivalSection";
+import Footer from "@/components/Footer";
 import HighlightSection from "@/components/HighlightSection";
 import CirclePattern from "@/components/icons/CirclePattern";
 import ImageContainer from "@/components/ImageContainer";
@@ -81,12 +82,12 @@ friendly South Asian Fest`,
 ];
 export default function Home() {
   return (
-    <>
+    <div className="">
       <Landing
         bgImage="/landing/Homepage.jpg"
         subtitle="Welcome"
-        textColor=""
-        highlightColor=""
+        textColor="#01249E"
+        highlightColor="#01249E"
         title={
           <>
             Ontario <br />
@@ -196,13 +197,14 @@ export default function Home() {
           },
         ]}
       />
-      <JournalSection />
+      {/* <JournalSection /> */}
       <ImageContainer
         image={{
           url: "/home/OSACA-Homepage-05.jpg",
           alt: "Festival Image",
         }}
       />
-    </>
+      <Footer />
+    </div>
   );
 }
