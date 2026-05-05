@@ -153,7 +153,7 @@ const page = () => {
       />
       <FestivalSection
         image="/home/OSACA-Homepage-02.jpg"
-        ctaLink=""
+        ctaLink="/events"
         title={
           <>
             View upcoming
