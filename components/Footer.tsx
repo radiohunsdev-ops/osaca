@@ -112,11 +112,11 @@ const SocialLinks = ({ secondaryColor }: { secondaryColor: string }) => (
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
+  { label: "About Us", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Memberships", href: "/memberships" },
   { label: "Huns Club", href: "/huns-club" },
-  { label: "Journal", href: "/journal" },
+  // { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 
